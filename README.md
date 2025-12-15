@@ -1,1 +1,3 @@
-# rare-technologies
+# Rare Technologies
+
+What is new?
