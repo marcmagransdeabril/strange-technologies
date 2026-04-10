@@ -19,28 +19,25 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 - Aprendizaje Profundo Geométrico
 - Inferencia Causal
 - Kernels de Tangente Neural
+- Análisis del Panorama de Optimización
 - Privacidad Diferencial
 - Programación Probabilística
 - Síntesis de Programas
 - Teoría de Categorías Computacional
 - Teoría Espectral de Grafos
 
-### Parte II — Alto Potencial
+### Parte II — En Rampa
 
-- Análisis del Panorama de Optimización
 - Criptografía de Retículos
 - Pruebas de Conocimiento Cero
 - Tolerancia a Fallos Bizantinos
 - Verificación Formal e IA
-
-### Parte III — En Rampa
-
 - Transporte Óptimo
-- Computación Analógica
+
+### Parte III — En el Laboratorio
+
 - Teoremas de Aproximación Universal
-
-### Parte IV — En el Laboratorio
-
+- Computación Analógica
 - Computación Reversible
 - Recuperación de Señales Dispersas
 - Análisis Topológico de Datos
