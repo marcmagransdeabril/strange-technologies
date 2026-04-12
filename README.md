@@ -2,7 +2,7 @@
 
 *Apuestas asimétricas para ingenieros curiosos*
 
-Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo diario. No porque sean inútiles, sino porque son difíciles, están en las fronteras entre disciplinas, o simplemente no han encontrado todavía su momento. Aprenderlas es como comprar una opción *call* fuera del dinero: el coste es pequeño — unas pocas tardes de estudio —, la pérdida máxima está acotada, pero si la tecnología despega, el retorno profesional no tiene techo. Este libro explora esas apuestas asimétricas: tecnologías extrañas, poderosas y probablemente más relevantes de lo que parecen.
+Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo diario. No porque sean inútiles, sino porque son difíciles, están en las fronteras entre disciplinas, o simplemente no han encontrado todavía su momento. Aprenderlas es como comprar una opción *call* fuera del dinero: el coste es pequeño — unas pocas tardes de estudio —, la pérdida máxima está acotada, pero si la tecnología despega, el retorno profesional no tiene techo. Para separar señal de ruido, este libro selecciona sus 24 tecnologías con un filtro doble: el Efecto Lindy — priorizando ideas con décadas de maduración teórica — y cuatro métricas empíricas que trazan el ciclo de adopción (publicaciones académicas, visibilidad en Hacker News, tracción en GitHub y financiación de startups). El resultado es un mapa de apuestas asimétricas: tecnologías extrañas, poderosas y probablemente más relevantes de lo que parecen.
 
 *Marc Magrans de Abril*
 
@@ -31,14 +31,14 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 - Criptografía de Retículos
 - Pruebas de Conocimiento Cero
 - Tolerancia a Fallos Bizantinos
-- Verificación Formal e IA
 - Transporte Óptimo
+- Verificación Formal e IA
+- Compresión Aprendida
 
 ### Parte III — En el Laboratorio
 
 - Teoremas de Aproximación Universal
 - Computación Analógica
-- Computación Reversible
 - Recuperación de Señales Dispersas
 - Análisis Topológico de Datos
 - Estadística Algebraica
