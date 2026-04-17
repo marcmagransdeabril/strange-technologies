@@ -42,7 +42,7 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 - Teoremas de Aproximación Universal
 - Computación Analógica
 - Recuperación de Señales Dispersas
-- Análisis Topológico de Datos
+- 👷 Análisis Topológico de Datos
 - Estadística Algebraica
 - Teoría de Juegos Algorítmica
 
