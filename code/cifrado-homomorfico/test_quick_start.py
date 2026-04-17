@@ -24,11 +24,18 @@ def test_script_ejecuta_o_falla_por_dependencia():
             f"Fallo inesperado (exit {result.returncode}):\n{result.stderr}"
         )
         pytest.skip("tenseal no instalado")
-    assert "Receta 1: Media cifrada" in result.stdout
-    assert "Receta 2: Varianza cifrada" in result.stdout
-    assert "Receta 3: Regresión lineal cifrada" in result.stdout
-    assert "Receta 4: El muro del ruido" in result.stdout
-    assert "Receta 6: Búsqueda cifrada" in result.stdout
+    if os.environ.get("BOOK_LANG") == "en":
+        assert "Recipe 1: Encrypted mean" in result.stdout
+        assert "Recipe 2: Encrypted variance" in result.stdout
+        assert "Recipe 3: Encrypted linear regression" in result.stdout
+        assert "Recipe 4: The noise wall" in result.stdout
+        assert "Recipe 6: Encrypted search" in result.stdout
+    else:
+        assert "Receta 1: Media cifrada" in result.stdout
+        assert "Receta 2: Varianza cifrada" in result.stdout
+        assert "Receta 3: Regresión lineal cifrada" in result.stdout
+        assert "Receta 4: El muro del ruido" in result.stdout
+        assert "Receta 6: Búsqueda cifrada" in result.stdout
 
 
 @pytest.fixture(scope="module")

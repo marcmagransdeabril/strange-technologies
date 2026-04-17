@@ -8,8 +8,16 @@ en claro. Compara rendimiento entre FHE y cálculo en claro.
 Requisitos: pip install tenseal
 """
 
+import sys
 import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from i18n import t  # noqa: E402
+
 import tenseal as ts
+
+_CH = "cifrado-homomorfico"
 
 
 def crear_contexto():
@@ -135,15 +143,15 @@ def muro_del_ruido():
     # Primera multiplicación: OK (consume el único nivel)
     resultado = datos * datos
     valores = resultado.decrypt()
-    print(f"Tras 1 multiplicación: {[f'{v:.1f}' for v in valores]}")
+    print(t(_CH, "tras_1_mult").format(valores=[f'{v:.1f}' for v in valores]))
 
     # Segunda multiplicación: falla — no quedan niveles
     try:
         resultado = resultado * resultado
-        print("ERROR: la segunda multiplicación no debería funcionar")
+        print(t(_CH, "error_segunda_mult"))
         return False
     except Exception as e:
-        print(f"Muro del ruido alcanzado: {type(e).__name__}: {e}")
+        print(t(_CH, "muro_alcanzado").format(error=f"{type(e).__name__}: {e}"))
         return True
 
 
@@ -159,21 +167,21 @@ def main():
 
     resultado, tiempos = media_fhe(salarios, contexto)
 
-    print("=== Receta 1: Media cifrada ===")
-    print(f"Media salarial (FHE):   {resultado:.2f} €")
-    print(f"Media salarial (claro): {media_claro:.2f} €")
-    print(f"Diferencia:             {abs(resultado - media_claro):.6f} €")
-    print(f"Slowdown:    {tiempos['total'] / max(t_claro, 1e-9):,.0f}×")
+    print(t(_CH, "receta1_header"))
+    print(t(_CH, "media_fhe_label").format(valor=resultado))
+    print(t(_CH, "media_claro_label").format(valor=media_claro))
+    print(t(_CH, "diferencia_label").format(valor=abs(resultado - media_claro)))
+    print(t(_CH, "slowdown_label").format(valor=tiempos['total'] / max(t_claro, 1e-9)))
     print()
 
     # --- Receta 2: Varianza cifrada ---
     var_claro = sum((x - media_claro) ** 2 for x in salarios) / n
     var_fhe = varianza_fhe(salarios, contexto)
 
-    print("=== Receta 2: Varianza cifrada ===")
-    print(f"Varianza (FHE):   {var_fhe:.2f}")
-    print(f"Varianza (claro): {var_claro:.2f}")
-    print(f"Diferencia:       {abs(var_fhe - var_claro):.6f}")
+    print(t(_CH, "receta2_header"))
+    print(t(_CH, "varianza_fhe_label").format(valor=var_fhe))
+    print(t(_CH, "varianza_claro_label").format(valor=var_claro))
+    print(t(_CH, "diferencia_var_label").format(valor=abs(var_fhe - var_claro)))
     print()
 
     # --- Receta 3: Regresión lineal cifrada ---
@@ -182,14 +190,14 @@ def main():
     pred_claro = sum(f * w for f, w in zip(features, pesos))
     pred_fhe = regresion_fhe(features, pesos, contexto)
 
-    print("=== Receta 3: Regresión lineal cifrada ===")
-    print(f"Predicción (FHE):   {pred_fhe:.4f}")
-    print(f"Predicción (claro): {pred_claro:.4f}")
-    print(f"Diferencia:         {abs(pred_fhe - pred_claro):.6f}")
+    print(t(_CH, "receta3_header"))
+    print(t(_CH, "pred_fhe_label").format(valor=pred_fhe))
+    print(t(_CH, "pred_claro_label").format(valor=pred_claro))
+    print(t(_CH, "diferencia_pred_label").format(valor=abs(pred_fhe - pred_claro)))
     print()
 
     # --- Receta 4: El muro del ruido ---
-    print("=== Receta 4: El muro del ruido ===")
+    print(t(_CH, "receta4_header"))
     muro_del_ruido()
     print()
 
@@ -199,13 +207,13 @@ def main():
     valor_claro = base_datos[indice_consulta]
     valor_fhe = busqueda_fhe(indice_consulta, base_datos, contexto)
 
-    print("=== Receta 6: Búsqueda cifrada (PIR) ===")
-    print(f"Índice consultado: {indice_consulta}")
-    print(f"Valor (FHE):   {valor_fhe:.4f}")
-    print(f"Valor (claro): {valor_claro:.4f}")
-    print(f"Diferencia:    {abs(valor_fhe - valor_claro):.6f}")
-    print(f"Registros en la base: {len(base_datos)}")
-    print("El servidor procesó TODOS los registros sin saber cuál se pidió.")
+    print(t(_CH, "receta6_header"))
+    print(t(_CH, "indice_label").format(valor=indice_consulta))
+    print(t(_CH, "valor_fhe_label").format(valor=valor_fhe))
+    print(t(_CH, "valor_claro_label").format(valor=valor_claro))
+    print(t(_CH, "diferencia_pir_label").format(valor=abs(valor_fhe - valor_claro)))
+    print(t(_CH, "registros_label").format(valor=len(base_datos)))
+    print(t(_CH, "servidor_msg"))
 
 
 if __name__ == "__main__":

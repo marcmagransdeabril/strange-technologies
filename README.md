@@ -17,7 +17,7 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 ### Parte I — En Órbita
 
 - CRDTs
-- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.html) ([📄](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.pdf))
+- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
 - Aprendizaje Profundo Geométrico
 - Inferencia Causal
 - Kernels de Tangente Neural

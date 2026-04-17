@@ -8,7 +8,12 @@ Es la solución al «muro del ruido» que vimos con TenSEAL en quick_start.py.
 Requisitos: pip install openfhe
 """
 
+import sys
 import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from i18n import t  # noqa: E402
 
 from openfhe import (
     CCParamsCKKSRNS,
@@ -18,6 +23,9 @@ from openfhe import (
     SecretKeyDist,
     SecurityLevel,
 )
+
+
+_CH = "cifrado-homomorfico"
 
 
 def crear_contexto_bootstrap(niveles_utiles=2, num_slots=4):
@@ -99,10 +107,10 @@ def bootstrapping_demo():
     esperado = [x**8 for x in datos]
     error_max = max(abs(v - e) for v, e in zip(valores, esperado))
 
-    print(f"Resultado FHE: {[f'{v:.1f}' for v in valores]}")
-    print(f"Esperado:      {[f'{v:.1f}' for v in esperado]}")
-    print(f"Error máximo:  {error_max:.6f}")
-    print(f"Tiempo bootstrap: {t_bootstrap:.2f} s")
+    print(t(_CH, "resultado_fhe_boot").format(valores=[f'{v:.1f}' for v in valores]))
+    print(t(_CH, "esperado_boot").format(valores=[f'{v:.1f}' for v in esperado]))
+    print(t(_CH, "error_max_boot").format(valor=error_max))
+    print(t(_CH, "tiempo_bootstrap").format(valor=t_bootstrap))
 
     return valores, esperado, t_bootstrap
 
