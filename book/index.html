@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tecnologías Extrañas</title>
+<title>Tecnologías Extrañas — Strange Technologies</title>
 <style>
   body { font-family: 'Georgia', 'Palatino Linotype', serif;
          max-width: 42em; margin: 2em auto; padding: 0 1.5em;
@@ -26,9 +26,33 @@
   .lang-icon { text-decoration: none; margin: 0 2px; font-size: 0.95em; }
   .lang-icon sub { font-size: 0.65em; font-weight: bold; vertical-align: baseline;
                     position: relative; top: 0.3em; }
+  .lang-switcher {
+    position: fixed; top: 12px; right: 16px; z-index: 9999;
+    display: flex; gap: 4px; background: #fff; border: 1px solid #ccc;
+    border-radius: 6px; padding: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: system-ui, sans-serif; font-size: 0.85rem;
+  }
+  .lang-switcher button {
+    border: none; background: transparent; padding: 4px 10px;
+    border-radius: 4px; cursor: pointer; font-weight: 600;
+    color: #555; transition: all 0.15s;
+  }
+  .lang-switcher button.active {
+    background: #1a5276; color: #fff;
+  }
+  .lang-switcher button:hover:not(.active) {
+    background: #e8e8e8;
+  }
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
 </style>
 </head>
 <body>
+<div class="lang-switcher">
+  <button id="btn-es" class="active" onclick="switchLang('es')">ES</button>
+  <button id="btn-en" onclick="switchLang('en')">EN</button>
+</div>
+<div class="lang-content active" data-lang="es">
 <h1>Tecnologías Extrañas</h1>
 <p class="subtitle">Apuestas asimétricas para ingenieros curiosos</p>
 <p class="author">Marc Magrans de Abril</p>
@@ -73,5 +97,62 @@
 
 <div class="disclaimer">Cualquier error en la interpretación de las tecnologías presentadas en este libro es responsabilidad exclusiva del autor y de sus limitadas capacidades. En caso de duda, el lector siempre puede — y debería — consultar las referencias originales que, aunque más densas, son sin duda más fidedignas.<br><br>El código y los algoritmos incluidos tienen un propósito estrictamente didáctico. Bajo ningún concepto se recomienda utilizarlos para nada serio: ni para proteger secretos de estado, ni para optimizar carteras de inversión, ni para pilotar cohetes. El mundo es complejo, el autor es muy imperfecto, y esto es solo para aprender.</div>
 <div class="contact">Si quieres proponer mejoras, señalar erratas o simplemente comentar algo sobre el contenido, puedes escribir a <a href="mailto:marcmagransdeabril@gmail.com">marcmagransdeabril@gmail.com</a>.</div>
+</div>
+<div class="lang-content" data-lang="en">
+<h1>Strange Technologies</h1>
+<p class="subtitle">Asymmetric bets for curious engineers</p>
+<p class="author">Marc Magrans de Abril</p>
+<div class="intro">There are technologies that most engineers will never encounter in their daily work. Not because they are useless, but because they are difficult, lie at the boundaries between disciplines, or simply haven't found their moment yet. Learning them is like buying an out-of-the-money <em>call</em> option: the cost is small — a few afternoons of study —, the maximum loss is bounded, but if the technology takes off, the professional return has no ceiling. To separate signal from noise, this book selects its 24 technologies with a dual filter: the Lindy Effect — prioritizing ideas with decades of theoretical maturation — and four empirical metrics that trace the adoption cycle (academic publications, Hacker News visibility, GitHub traction, and startup funding). The result is a map of asymmetric bets: strange, powerful technologies that are probably more relevant than they seem.</div>
+<h2>Contents</h2>
+<h3>Introduction</h3>
+<ul>
+  <li>Technology</li>
+</ul>
+<h3>Part I — In Orbit</h3>
+<ul>
+  <li>CRDTs</li>
+  <li><a href="chapters/cifrado-homomorfico.html">Homomorphic Encryption</a> <a href="chapters/cifrado-homomorfico.es.pdf" title="Descargar PDF (Español)" class="lang-icon">📄<sub>ES</sub></a> <a href="chapters/cifrado-homomorfico.en.pdf" title="Download PDF (English)" class="lang-icon">📄<sub>EN</sub></a></li>
+  <li>Geometric Deep Learning</li>
+  <li>Causal Inference</li>
+  <li>Neural Tangent Kernels</li>
+  <li>Optimization Landscape Analysis</li>
+  <li>Differential Privacy</li>
+  <li>Probabilistic Programming</li>
+  <li>Program Synthesis</li>
+  <li>Computational Category Theory</li>
+  <li>Spectral Graph Theory</li>
+</ul>
+<h3>Part II — On the Ramp</h3>
+<ul>
+  <li>Lattice-Based Cryptography</li>
+  <li>Zero-Knowledge Proofs</li>
+  <li>Byzantine Fault Tolerance</li>
+  <li>Optimal Transport</li>
+  <li>Formal Verification and AI</li>
+  <li>Learned Compression</li>
+</ul>
+<h3>Part III — In the Lab</h3>
+<ul>
+  <li>Universal Approximation Theorems</li>
+  <li>Analog Computing</li>
+  <li>Sparse Signal Recovery</li>
+  <li>Topological Data Analysis</li>
+  <li>Algebraic Statistics</li>
+  <li>Algorithmic Game Theory</li>
+</ul>
+
+<div class="disclaimer">Any errors in the interpretation of the technologies presented in this book are the sole responsibility of the author and his limited abilities. When in doubt, the reader can — and should — always consult the original references, which, although denser, are undoubtedly more reliable.<br><br>The code and algorithms included are strictly for educational purposes. Under no circumstances should they be used for anything serious: not for protecting state secrets, not for optimizing investment portfolios, and not for piloting rockets. The world is complex, the author is very imperfect, and this is just for learning.</div>
+<div class="contact">If you would like to suggest improvements, report errata, or simply comment on the content, you can write to <a href="mailto:marcmagransdeabril@gmail.com">marcmagransdeabril@gmail.com</a>.</div>
+</div>
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.lang-content').forEach(function(el) {
+    el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+}
+</script>
 </body>
 </html>
