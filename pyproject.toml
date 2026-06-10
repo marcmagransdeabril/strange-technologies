@@ -1,6 +1,6 @@
 [tool.pytest.ini_options]
-testpaths = ["code"]
+testpaths = ["tests"]
 markers = [
-    "live: tests that require optional/heavy dependencies (tenseal, pymc, dowhy, etc.)",
+    "live: tests that require optional/heavy dependencies",
 ]
 addopts = "--import-mode=importlib"

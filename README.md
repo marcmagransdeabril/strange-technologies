@@ -17,7 +17,7 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 ### Parte I — En Órbita
 
 - CRDTs
-- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
+- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.es.html) [EN](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.en.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
 - Aprendizaje Profundo Geométrico
 - Inferencia Causal
 - Kernels de Tangente Neural
@@ -52,13 +52,19 @@ Los ejemplos de código ejecutable están organizados por capítulo:
 
 ```
 code/
-├── conftest.py              # Configuración compartida de pytest
-├── cifrado-homomorfico/     # Scripts y tests del capítulo
+├── cifrado-homomorfico/
 │   ├── quick_start.py
-│   ├── test_quick_start.py
-│   ├── bootstrapping.py
-│   └── test_bootstrapping.py
-└── ...
+│   └── bootstrapping.py
+└── i18n/
+```
+```
+tests/
+├── conftest.py
+└── cifrado-homomorfico/
+    ├── conftest.py
+    └── code/
+        ├── test_quick_start.py
+        └── test_bootstrapping.py
 ```
 
 ### Ejecución de tests
@@ -67,7 +73,7 @@ code/
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m pytest code/ -q --tb=short
+python -m pytest tests/ -q --tb=short
 ```
 
 Algunos capítulos requieren dependencias opcionales pesadas (tenseal, openfhe).
@@ -78,13 +84,3 @@ Para instalarlas:
 pip install tenseal    # ~500 MB, cifrado homomórfico
 pip install openfhe    # bootstrapping CKKS
 ```
-
-## Descargo de responsabilidad
-
-Cualquier error en la interpretación de las tecnologías presentadas en este libro es responsabilidad exclusiva del autor y de sus limitadas capacidades. En caso de duda, el lector siempre puede — y debería — consultar las referencias originales que, aunque más densas, son sin duda más fidedignas.
-
-El código y los algoritmos incluidos tienen un propósito estrictamente didáctico. Bajo ningún concepto se recomienda utilizarlos para nada serio: ni para proteger secretos de estado, ni para optimizar carteras de inversión, ni para pilotar cohetes. El mundo es complejo, el autor es muy imperfecto, y esto es solo para aprender.
-
-## Contacto
-
-Si quieres proponer mejoras, señalar erratas o simplemente comentar algo sobre el contenido, puedes escribir a [marcmagransdeabril@gmail.com](mailto:marcmagransdeabril@gmail.com).

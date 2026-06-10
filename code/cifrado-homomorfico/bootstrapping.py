@@ -43,21 +43,25 @@ def crear_contexto_bootstrap(niveles_utiles=2, num_slots=4):
 
     secret_key_dist = SecretKeyDist.UNIFORM_TERNARY
     params.SetSecretKeyDist(secret_key_dist)
-    params.SetSecurityLevel(SecurityLevel.HEStd_128_classic)
+    # Usamos un anillo pequeño (N = 4096) para que la demo sea rápida.
+    # HEStd_NotSet desactiva la validación de nivel de seguridad,
+    # necesaria porque N = 4096 no cumple HEStd_128_classic.
+    params.SetSecurityLevel(SecurityLevel.HEStd_NotSet)
+    params.SetRingDim(1 << 12)
 
     # El bootstrapping necesita niveles extra para evaluar
     # el circuito de descifrado homomórficamente.
     # level_budget = [niveles_colapsando, niveles_elevando]
-    level_budget = [4, 4]
-    approx_bootstrap_depth = 8
+    level_budget = [2, 2]
 
     profundidad = niveles_utiles + FHECKKSRNS.GetBootstrapDepth(
-        approx_bootstrap_depth, level_budget, secret_key_dist
+        level_budget, secret_key_dist
     )
 
     params.SetMultiplicativeDepth(profundidad)
-    params.SetScalingModSize(40)
+    params.SetScalingModSize(48)
     params.SetFirstModSize(60)
+    params.SetBatchSize(num_slots)
 
     cc = GenCryptoContext(params)
     cc.Enable(PKESchemeFeature.PKE)
@@ -68,7 +72,7 @@ def crear_contexto_bootstrap(niveles_utiles=2, num_slots=4):
 
     keys = cc.KeyGen()
     cc.EvalMultKeyGen(keys.secretKey)
-    cc.EvalBootstrapSetup(level_budget)
+    cc.EvalBootstrapSetup(level_budget, [0, 0], num_slots)
     cc.EvalBootstrapKeyGen(keys.secretKey, num_slots)
 
     return cc, keys, profundidad
@@ -102,7 +106,7 @@ def bootstrapping_demo():
     # --- Descifrar y verificar ---
     result_ptxt = cc.Decrypt(ctxt, keys.secretKey)
     result_ptxt.SetLength(len(datos))
-    valores = [result_ptxt[i] for i in range(len(datos))]
+    valores = [v.real for v in result_ptxt.GetCKKSPackedValue()]
 
     esperado = [x**8 for x in datos]
     error_max = max(abs(v - e) for v, e in zip(valores, esperado))
