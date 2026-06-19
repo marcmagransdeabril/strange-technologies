@@ -42,7 +42,7 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 - Teoremas de Aproximación Universal
 - Computación Analógica
 - Recuperación de Señales Dispersas
-- 👷 Análisis Topológico de Datos
+- [Análisis Topológico de Datos](book/chapters/tda.es.html) — [ES](book/chapters/tda.es.html) · [EN](book/chapters/tda.en.html) · [PDF ES](book/chapters/tda.es.pdf) · [PDF EN](book/chapters/tda.en.pdf)
 - Estadística Algebraica
 - Teoría de Juegos Algorítmica
 
