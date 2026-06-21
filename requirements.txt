@@ -1,7 +1,18 @@
-# Core (always needed)
+jupyter
+matplotlib
+networkx
 numpy
+openai
+gudhi
+kmapper
+persim
 pytest
-
-# Optional — tests skip gracefully if not installed
-# tenseal        # cifrado-homomorfico (TenSEAL ~500 MB)
-# openfhe        # cifrado-homomorfico bootstrapping
+requests
+ripser
+scikit-learn
+scipy
+umap-learn
+sentence-transformers
+tenseal
+pyyaml
+xlrd

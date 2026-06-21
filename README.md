@@ -17,7 +17,7 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 ### Parte I — En Órbita
 
 - CRDTs
-- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.es.html) · [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) · [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
+- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.es.html) [EN](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.en.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
 - Aprendizaje Profundo Geométrico
 - Inferencia Causal
 - Kernels de Tangente Neural
@@ -42,9 +42,10 @@ Hay tecnologías que la mayoría de ingenieros nunca encontrará en su trabajo d
 - Teoremas de Aproximación Universal
 - Computación Analógica
 - Recuperación de Señales Dispersas
-- 👷 [Análisis Topológico de Datos](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/tda.es.html) · [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.es.pdf) · [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.en.pdf)
+- [Análisis Topológico de Datos](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/tda.es.html) [EN](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/tda.en.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.en.pdf)
 - Estadística Algebraica
 - Teoría de Juegos Algorítmica
+- Biología Sintética
 
 ## Código
 
@@ -52,19 +53,12 @@ Los ejemplos de código ejecutable están organizados por capítulo:
 
 ```
 code/
-├── cifrado-homomorfico/
-│   ├── quick_start.py
-│   └── bootstrapping.py
-└── i18n/
-```
-```
+├── i18n/                    # Módulo i18n y cadenas localizadas
+├── cifrado-homomorfico/     # Scripts del capítulo de cifrado homomórfico
+└── tda/                     # Scripts del capítulo de análisis topológico
 tests/
-├── conftest.py
-└── cifrado-homomorfico/
-    ├── conftest.py
-    └── code/
-        ├── test_quick_start.py
-        └── test_bootstrapping.py
+├── cifrado-homomorfico/code/  # Tests unitarios
+└── tda/code/                  # Tests unitarios
 ```
 
 ### Ejecución de tests
@@ -78,9 +72,3 @@ python -m pytest tests/ -q --tb=short
 
 Algunos capítulos requieren dependencias opcionales pesadas (tenseal, openfhe).
 Si no están instaladas, los tests correspondientes se saltan automáticamente.
-Para instalarlas:
-
-```bash
-pip install tenseal    # ~500 MB, cifrado homomórfico
-pip install openfhe    # bootstrapping CKKS
-```
