@@ -8,31 +8,15 @@ Marc Magrans de Abril
 
 ## Contenido
 
-- Cifrado Homomórfico
-- Análisis Topológico de Datos
+- [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.es.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
+- [Análisis Topológico de Datos](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/tda.es.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.en.pdf)
 
 ## Código
 
-Los ejemplos de código ejecutable están organizados por capítulo:
-
-```
-code/
-├── i18n/
-├── cifrado-homomorfico/
-└── tda/
-tests/
-├── cifrado-homomorfico/code/
-└── tda/code/
-```
-
-### Ejecución de tests
+Ejemplos ejecutables en `code/`; tests en `tests/`.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python -m pytest tests/ -q --tb=short
 ```
-
-Algunos capítulos requieren dependencias opcionales pesadas (tenseal, openfhe).
-Si no están instaladas, los tests correspondientes se saltan automáticamente.
