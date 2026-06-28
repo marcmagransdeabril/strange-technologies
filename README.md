@@ -9,7 +9,7 @@ Marc Magrans de Abril
 ## Contenido
 
 - [Cifrado Homomórfico](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/cifrado-homomorfico.es.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/cifrado-homomorfico.en.pdf)
-- [Análisis Topológico de Datos](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/tda.es.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.en.pdf)
+- 🚧 [Análisis Topológico de Datos](https://marcmagransdeabril.github.io/strange-technologies/book/chapters/tda.es.html) [📄<sub>ES</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.es.pdf) [📄<sub>EN</sub>](https://github.com/marcmagransdeabril/strange-technologies/raw/main/book/chapters/tda.en.pdf)
 
 ## Código
 
