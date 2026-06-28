@@ -1,7 +1,6 @@
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 markers = [
-    "live: tests that require optional/heavy dependencies (tenseal, pymc, dowhy, etc.)",
+    "live: tests that require optional/heavy dependencies",
 ]
-# Each code dir is added to sys.path so scripts can be imported directly
 addopts = "--import-mode=importlib"
